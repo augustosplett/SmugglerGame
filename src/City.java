@@ -11,7 +11,7 @@ public class City {
 
         System.out.println("Items in the city:");
         for( Item el : items){
-            System.out.printf("Item: %s \t Price: %f%n", el.name, el.price);
+            el.Display();
         }
     }
 }

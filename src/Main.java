@@ -9,6 +9,5 @@ public class Main {
 
         var myCity = new City("São Paulo", cityItems);
         myCity.Display();
-        //cityItems.Display();
     }
 }
