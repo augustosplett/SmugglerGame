@@ -1,0 +1,7 @@
+Ottawa
+Toronto
+Calgary
+Winnipeg
+Vancouver
+Montreal
+Quebec City

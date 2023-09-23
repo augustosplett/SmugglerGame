@@ -1,0 +1,16 @@
+STATUS  ITEM ID     DESCRIPTION
+[done]   1          Create a Class Smuggler;
+[done]   2*         Create at Smuggler functions to buy itens;  ***Need to change to the city?
+[done]   3*         Create at Smuggler functions to sell itens; ***Need to change to the city?
+[done]   4          Create at Smuggler function to see the inventory;
+[done]   5          Create a Class Item;
+[    ]   6          Create a method to display item info;
+[done]   7          Create a class City;
+[    ]   8          Create a method to display city items;
+[done]   9          Create a way to generate items with random buy and sell prices.
+[    ]   10         Create a function or other way to have a menu;
+[    ]   11         Create a function or Way to travel;
+[    ]   12         Create a function or Way to "be the cop";
+[    ]   13         Create a function to insert initial items into smuggler's inventory
+[    ]   14         Create the menu function
+
