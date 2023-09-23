@@ -8,8 +8,8 @@ public class Item {
         this.price = price;
     }
 
-    public void Display(){
-        System.out.printf("Item: %s \t Price: %f%n", this.name, this.price);
+    public String Display(){
+        return String.format("Item: %s\nPrice: %.2f", this.name, this.price);
     }
 }
 //association -> the object is created outside the object

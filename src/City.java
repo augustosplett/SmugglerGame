@@ -7,6 +7,9 @@ public class City {
         this.items = items;
     }
 
+    String getCityName(){
+        return this.name;
+    }
     public void Display(){
 
         System.out.println("Items in the city:");
