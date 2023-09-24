@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Objects;
 import java.util.Scanner;
 import java.io.File;  // Import the File class
 import java.io.FileNotFoundException;  // Import this class to handle errors
@@ -58,8 +59,19 @@ public class Game {
 
     private void SellItems() {
         //here, we need to sell the items in the smuggler's inventory and sell them to the city but using the city's price
-        player.getCurrentCity().DisplayItemsWithBuyPrice();
-
+        if(player.inventory.size() > 0) {//check if the user has any item in his inventory
+            player.DisplaySmugglerItems();//display the items into Smuggler inventory
+            var option = ChooseItemToMove("sell"); //take the number item the user wants to sell
+            var itemToSell = player.inventory.get(option); //take the item itself from the user inventory
+            double price = 0;
+            for(Item item : player.getCurrentCity().items ){ //as the item have different prices in different cities we need to get the prince into the specific city.
+               if (Objects.equals(itemToSell.name, item.name)) price = item.BuyPrice;//If the chosen item has the same name as an Item into the city's inventory, returns its price
+            }
+            player.inventory.remove(itemToSell);//remove the item from user's inventory
+            player.Sell(price);//add balance into user's balance.
+        }else{
+            System.out.println("Your inventory is empty");
+        }
 
     }
 

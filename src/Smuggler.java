@@ -2,22 +2,25 @@ import java.util.ArrayList;
 
 public class Smuggler {
 
-
     private String name;
     public ArrayList<Item> inventory = new ArrayList<>();
     private double balance;
     private City currentCity;//makes sense having the current city here?
 
-    public void Buy(Double amount){
+    public void Buy(Double amount){ //affects the balance when the smuggler buys a item
         if(this.HasEnoughMoney(amount)){
             balance -= amount;
         }
     }
-    public boolean HasEnoughSpace(){
+
+    public void Sell(Double amount){
+        balance = balance + amount;
+    }
+    public boolean HasEnoughSpace(){ //validate if the smuggler has enough space in his inventory
         return this.inventory.size() < 5;
     }
 
-    public boolean HasEnoughMoney(Double amount){
+    public boolean HasEnoughMoney(Double amount){//validate if the smuggler has enough money in his balance
         return this.balance > amount;
     }
     public String getName() {
@@ -32,39 +35,25 @@ public class Smuggler {
     }
 
     Smuggler(String name){
-        this.balance = 10;//decided that th smuggler will begin the game with 1,000.00
+        this.balance = 1000;//decided that th smuggler will begin the game with 1,000.00
         this.name = name;
     }
 
-//    String SellItem(Item itemToSell){
-//        //validate if the smuggler has this item on his inventory
-//        if(inventory.contains(itemToSell)) {
-////            balance += itemToSell.price;  //add the value of the sold item to the balance
-//            inventory.remove(itemToSell); //remove the item from the inventory
-//            return  "Item Sold!";
-//        }
-//        return "Item not sold";
-//    }
-
-//    String BuyItem(Item itemToBuy){
-//        //validate if the smuggler inventory has enough space (max 5 slots)
-//        if(inventory.size() < 5){
-//            //validate if the smuggler has enough money to buy the item
-//            if(this.balance >= itemToBuy.price){
-//                this.balance -= itemToBuy.price; //reduce the amount of money
-//                inventory.add(itemToBuy);        //adding the item to the inventory
-//                return "Item added to your inventory";
-//            }
-//            return "You can't buy this item, your money is not enough";
-//        }
-//        return "You can't buy more items, your inventory is full";
-//    }
-
-    void DisplayInventory(){
-        System.out.println("---------------USER INVENTORY START----------------\n");
+    void DisplayCurrentCity(){
         System.out.println(String.format("You are in: %s",
                 this.currentCity.getCityName()));
+    }
+    void DisplayBalance(){
         System.out.printf("Your Balance is: %.2f%n",this.balance);
+    }
+    void DisplayInventory(){
+        System.out.println("---------------USER INVENTORY START----------------\n");
+        DisplayCurrentCity();
+        DisplayBalance();
+        DisplaySmugglerItems();
+        System.out.println("---------------USER INVENTORY END------------------");
+    }
+    void DisplaySmugglerItems(){
         if(!inventory.isEmpty()) {
             System.out.println("You have the following items on your inventory:");
             for (int i = 0; i < inventory.size(); i++) {
@@ -77,7 +66,5 @@ public class Smuggler {
         }else {
             System.out.println("Your inventory is empty\n");
         }
-        System.out.println("---------------USER INVENTORY END------------------");
     }
-
 }
